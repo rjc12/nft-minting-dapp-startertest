@@ -13,9 +13,9 @@ contract Minter is ERC721Enumerable {
     using SafeMath for uint256;
 
     // Contract global variables.
-    uint256 public constant mintPrice = 30000000000000000; // 0.03 ETH.
-    uint256 public constant maxMint = 10;
-    uint256 public MAX_TOKENS = 10000;
+    uint256 public constant mintPrice = 35000000000000000; // 0.03 ETH.
+    uint256 public constant maxMint = 20;
+    uint256 public MAX_TOKENS = 9000;
 
     // Name token using inherited ERC721 constructor.
     constructor() ERC721("Minter", "MINTER") {}
@@ -25,7 +25,7 @@ contract Minter is ERC721Enumerable {
         // Number of tokens can't be 0.
         require(numberOfTokens != 0, "You need to mint at least 1 token");
         // Check that the number of tokens requested doesn't exceed the max. allowed.
-        require(numberOfTokens <= maxMint, "You can only mint 10 tokens at a time");
+        require(numberOfTokens <= maxMint, "You can only mint 20 tokens at a time");
         // Check that the number of tokens requested wouldn't exceed what's left.
         require(totalSupply().add(numberOfTokens) <= MAX_TOKENS, "Minting would exceed max. supply");
         // Check that the right amount of Ether was sent.

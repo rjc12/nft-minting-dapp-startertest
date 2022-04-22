@@ -9,8 +9,8 @@ import YourNFTs from '../components/YourNFTs'
 
 export default function Home() {
   // Constants
-  const MINT_PRICE = 0.03;
-  const MAX_MINT = 10;
+  const MINT_PRICE = 0.035;
+  const MAX_MINT = 20;
 
   // UI state
   const [mintQuantity, setMintQuantity] = useState(1)
@@ -29,7 +29,7 @@ export default function Home() {
       return
     }
     if ( mintQuantity > MAX_MINT ) {
-      setMintMessage('You can only mint a maximum of 10 NFTs.')
+      setMintMessage('You can only mint a maximum of 20 NFTs.')
       setMintError(true)
       mintQuantityInputRef.current.focus()
       return
@@ -69,14 +69,14 @@ export default function Home() {
     <div className="max-w-xl mt-36 mx-auto px-4">
       <Head>
         <title>NFT Minting dApp Starter</title>
-        <meta name="description" content="Mint an NFT, or a number of NFTs, from the client-side." />
+        <meta name="description" content="Mint an MetaPunk" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Wallet />
       <main className="space-y-8">
         { ! process.env.NEXT_PUBLIC_MINTER_ADDRESS ? (
             <p className="text-md">
-              Please add a value to the <pre>NEXT_PUBLIC_MINTER_ADDRESS</pre> environment variable.
+              Please add a value to the <pre>0xc97F2073f93CaAAD39990B2f2f2Bfd2BF7291780</pre> environment variable.
             </p>
         ) : (
           <>
@@ -89,7 +89,7 @@ export default function Home() {
                   <div>
                     <h2 className="text-2xl font-semibold mb-2">Mint NFTs</h2>
                     <label className="text-gray-600 text-sm mb-2 inline-block">
-                      How many NFTs would you like to mint from the smart contract?
+                      How many MetaPunks would you like to mint?
                     </label>
                     <div className="flex">
                       <input
@@ -99,7 +99,7 @@ export default function Home() {
                           placeholder="1"
                           type="number"
                           min="1"
-                          max="10"
+                          max="20"
                           ref={mintQuantityInputRef}
                         />
                       <button
